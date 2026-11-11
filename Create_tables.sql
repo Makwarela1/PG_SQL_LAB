@@ -1,4 +1,5 @@
 CREATE TABLE customers (
+<<<<<<< HEAD
 customer_id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY, 
 first_name VARCHAR(50) NOT NULL,
 last_name VARCHAR(50) NOT NULL, 
@@ -6,6 +7,15 @@ email VARCHAR(150) NOT NULL UNIQUE,
 phone VARCHAR (20), 
 created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 ); 
+=======
+    customer_id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    email VARCHAR(150) NOT NULL UNIQUE,
+    phone VARCHAR(20),
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+>>>>>>> cdd8ab1af297a18473e218ac82066d8e2a4eb71f
 
 CREATE TABLE products (
     product_id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
@@ -22,7 +32,11 @@ CREATE TABLE orders (
     order_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     status VARCHAR(20) NOT NULL DEFAULT 'PENDING',
     CONSTRAINT fk_orders_customer
+<<<<<<< HEAD
         FOREIGN KEY (customer_id) 
+=======
+        FOREIGN KEY (customer_id)
+>>>>>>> cdd8ab1af297a18473e218ac82066d8e2a4eb71f
         REFERENCES customers(customer_id),
     CONSTRAINT chk_orders_status
         CHECK (status IN ('PENDING', 'PAID', 'SHIPPED', 'CANCELLED'))
@@ -45,8 +59,12 @@ CREATE TABLE order_items (
 
     CONSTRAINT uq_order_product
         UNIQUE (order_id, product_id)
+<<<<<<< HEAD
 );
 
 
 
 
+=======
+);
+>>>>>>> cdd8ab1af297a18473e218ac82066d8e2a4eb71f
